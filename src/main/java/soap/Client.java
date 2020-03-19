@@ -24,5 +24,6 @@ public class Client {
         System.out.println("Pow: " + client.pow(1,5));
         System.out.println("Raix: " + client.raiz2(98));
         System.out.println("hola 2 committ");
+        System.out.println("adios");
     }
 }
