@@ -22,8 +22,13 @@ public class Client {
         System.out.println("Pow: " + client.pow(5,8));
         System.out.println("Pow: " + client.pow(5,1));
         System.out.println("Pow: " + client.pow(1,5));
-        System.out.println("Raix: " + client.raiz2(98));
+        System.out.println("Raix: " + client.raiz2(4));
+        System.out.println("Raix: " + client.raiz2(12));
+        System.out.println("Raix: " + client.raiz2(64));
+
+        System.out.println("Ln(5) = " + client.ln(5));
         System.out.println("hola 2 committ");
         System.out.println("adios");
+
     }
 }
