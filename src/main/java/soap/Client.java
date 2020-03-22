@@ -40,11 +40,17 @@ public class Client {
         System.out.println("Raiz 64: " + client.raiz2(64));
         System.out.println("Raiz 1:" + client.raiz2(1));
         System.out.println("Raiz 0:" + client.raiz2(0));
-        System.out.println("Raiz -5:" + client.raiz2(-5));
+        System.out.println("Raiz -5: " + client.raiz2(-5));
+        System.out.println("Raiz 198: " + client.raiz2(198));
+        System.out.println("Raiz 51912: " + client.raiz2(51912));
+
+
         System.out.println("");
 
         /**/
         System.out.println("Ln(5) = " + client.ln(5));
+        System.out.println("Ln(45) = " + client.ln(45));
+        System.out.println("Ln(67) = " + client.ln(67));
         System.out.println("Ln(0) = " + client.ln(0));
         System.out.println("Ln(-2) = " + client.ln(-2));
 

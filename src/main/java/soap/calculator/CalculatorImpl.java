@@ -94,6 +94,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     /**
+     * NO
      * f(x) = ln(x)
      * Aproximación de Taylor centrado en 1.
      * Derivadas:
@@ -114,24 +115,15 @@ public class CalculatorImpl implements Calculator {
         else if(a==0){
             return(Double.NEGATIVE_INFINITY);
         }
-        int n=1;
+        int pasos=0;
         double save = 0.0;
         double res = 1.0;
-        boolean par = true;
-
-        while(( res != save) && n<=500){
+        while ((res != save) && pasos<500) {
             save = res;
-            if(par==true){
-                res = res + (1.0/(n*Math.pow(e,n))) * (Math.pow(a-e,n));
-                par=false;
-            }
-            else if(par==false){
-                res = res + (-1.0/(n*Math.pow(e,n))) * (Math.pow(a-e,n));
-                par=true;
-            }
-            n++;
+            res = res - ((Math.pow(e,res)-a)/(Math.pow(e,res)));
+            pasos++;
         }
-        return(res);
+        return res;
     }
 
     @Override
