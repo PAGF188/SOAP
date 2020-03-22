@@ -57,16 +57,16 @@ public interface Calculator {
      * Operación 5: Potencia de un número
      * @param a base.
      * @param b exponente
-     * @return a elevado a b. (a multiplicado b veces)
+     * @return a elevado a b.
      */
     @WebMethod(operationName = "potencia")
     @WebResult(name = "resultado")
-    int pow(@WebParam(name = "base") int a, @WebParam(name = "exponente") int b);
+    double pow(@WebParam(name = "base") int a, @WebParam(name = "exponente") int b);
 
     /**
      * Operación 6: Raíz cuadrada de un número
-     * @param a radicando.
-     * @return raiz cuadrada de a.
+     * @param a radicando. Entero positivo (devuelve 0 si no lo es).
+     * @return raiz cuadrada de a.  NaN si a<0
      */
     @WebMethod(operationName = "raizCuadrada")
     @WebResult(name = "resultado")
@@ -74,8 +74,8 @@ public interface Calculator {
 
     /**
      * Operación 7: Logaritmo neperiano de un número.
-     * @param a valor al que calcular el ln.
-     * @return valor tal que e^@return=a.
+     * @param a valor al que calcular el ln. Entero positivo
+     * @return valor tal que e^@return=a.  Nan si a<0. -Infinito si a==0
      */
     @WebMethod(operationName = "logNeperiano")
     @WebResult(name = "resultado")
@@ -84,58 +84,61 @@ public interface Calculator {
     /**
      * Operación 8: Máximo de una lista de números enteros
      * @param nums lista de valores enteros.
-     * @return máximo de la lista.
+     * @return máximo de la lista. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "maximo")
     @WebResult(name = "maximo")
-    int max(@WebParam(name = "lista") int [] nums);
+    int max(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
 
     /**
      * Operación 9: Mínimo de una lista de números enteros
      * @param nums lista de valores enteros.
-     * @return mínimo de la lista.
+     * @return mínimo de la lista. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "minimo")
     @WebResult(name = "minimo")
-    int min(@WebParam(name = "lista") int [] nums);
+    int min(@WebParam(name = "lista") int [] nums)throws ListaVaciaEception;
 
     /**
      * Operación 10: Media de una lista de numeros enteros
      * @param nums lista de valores enteros.
-     * @return media.
+     * @return media. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "media")
     @WebResult(name = "media")
-    double media(@WebParam(name = "lista") int [] nums);
+    double media(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
 
     /**
      * Operación 11: Mediana de una lista de numeros enteros
      * @param nums lista de valores enteros.
-     * @return mediana.
+     * @return mediana. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "mediana")
     @WebResult(name = "mediana")
-    double mediana(@WebParam(name = "lista") int [] nums);
+    double mediana(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
 
     /**
      * Operación 12: Moda de una lista de numeros enteros
      * @param nums lista de valores enteros.
-     * @return moda.
+     * @return moda. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "moda")
     @WebResult(name = "moda")
-    int moda(@WebParam(name = "lista") int [] nums);
+    int moda(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
 
     /**
      * Operación 13: Desviación típica de una lista de numeros enteros
      * @param nums lista de valores enteros.
-     * @return desviación típica.
+     * @return desviación típica. Nan en caso de lista vacía.
      */
     @WebMethod(operationName = "desviacionTipica")
     @WebResult(name = "desviacionTipica")
-    double desviacionTipica(@WebParam(name = "lista") int [] nums);
+    double desviacionTipica(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
 
-
-
+    public class ListaVaciaEception extends Exception{
+        public ListaVaciaEception(String m){
+            super(m);
+        }
+    }
 
 }
