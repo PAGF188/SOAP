@@ -94,19 +94,9 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     /**
-     * NO
-     * f(x) = ln(x)
-     * Aproximación de Taylor centrado en 1.
-     * Derivadas:
-     * f'(x) = 1/x
-     * f''(x) = -1/x²
-     * f'''(x) = 2/x³
-     * f''''(x) = -6/x⁴
-     * Regla general: f'n(x) = ((-1)^(n+1)*(n-1)!) / (x^n)
-     * Taylor-> f'/f n!
-     * 1+ sumatorio de n=1 hasta infinito (((-1)^(n+1))/(n*e^n))*(x-e)^n
-     * Primer término queda alternando 1 y -1
-     * Paramos si diferencia nula (entre 2 iterandos) o más de 500 pasos
+     * ln(a)=x == e^x=a
+     * Al igual que el anterior, método de newton sobre la función:
+     * f(x) = e^x-a
      */
     public double ln(int a) {
         if(a<0){
@@ -165,11 +155,19 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
+    /*si son impares, coger el del medio, si son pares la medio de los del medio*/
     public double mediana(int[] nums) throws ListaVaciaEception{
         if(nums==null || nums.length==0){
             throw new ListaVaciaEception("La lista no contiene ningún elemento");
         }
-        return 0;
+        nums=this.ordena(nums);
+        if(nums.length%2==1){
+            System.out.println(nums.length/2);
+            return(nums[nums.length/2]);
+        }
+        else{
+            return((nums[nums.length/2-1]+nums[nums.length/2])/2.0);
+        }
     }
 
     @Override
@@ -187,4 +185,24 @@ public class CalculatorImpl implements Calculator {
         }
         return 0;
     }
+
+    /**********************
+     *  Métodos privados  *
+     ******************** */
+    private int[] ordena(int [] nums){
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=0;j<nums.length-i-1;j++){
+                if(nums[j]>nums[j+1]){
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        for(int i=0;i<nums.length;i++){
+            System.out.println(nums[i] + " ");
+        }
+        return(nums);
+    }
+
 }

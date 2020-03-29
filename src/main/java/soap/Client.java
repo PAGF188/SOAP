@@ -57,6 +57,8 @@ public class Client {
         /**/
         int x[] = {};
         int n[] = {5,6,12,32,1,6,9,33,2,4,55,6,7,1,2,4,22,4,211,1,67,21,34,23};
+        int m[] = {4,5,3,6,1,2};
+        int mi[] = {5,4,3,1,2};
         try {
             System.out.println("\nMaximo Lista: " + client.max(n));
             System.out.println("Minimo Lista: " + client.min(n));
@@ -65,7 +67,13 @@ public class Client {
         }catch (Calculator.ListaVaciaEception e){
             System.out.println(e.getMessage());
         }
-
+        /**/
+        try{
+            System.out.println("Mediana(3.5) "+client.mediana(m));
+            System.out.println("Mediana(3) "+client.mediana(mi));
+        }catch(Calculator.ListaVaciaEception e){
+            System.out.println(e.getMessage());
+        }
 
     }
 }
