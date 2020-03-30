@@ -1,6 +1,8 @@
 package soap.calculator;
 
 import javax.jws.WebService;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Implementación de la interfaz Calculator
@@ -175,15 +177,43 @@ public class CalculatorImpl implements Calculator {
         if(nums==null || nums.length==0){
             throw new ListaVaciaEception("La lista no contiene ningún elemento");
         }
-        return 0;
+
+        int moda=-1;
+        int maximoV=-1;
+
+        for (int i = 0; i < nums.length; i++) {
+            int veces = 0;
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[i] == nums[j])
+                    veces++;
+            }
+            if (veces > maximoV) {
+                maximoV = veces;
+                moda = nums[i];
+            }
+        }
+
+        return(moda);
     }
 
     @Override
+    /**
+     * s=raiz((1/n)*sumatorio del cuadrado de las desviaciones respecto a la media)
+     * Asumimos problacion completa -> el estadístico es n (no n-1)
+     */
     public double desviacionTipica(int[] nums) throws ListaVaciaEception{
         if(nums==null || nums.length==0){
             throw new ListaVaciaEception("La lista no contiene ningún elemento");
         }
-        return 0;
+
+        double media = this.media(nums);
+        double s=0;
+
+        for(int e: nums){
+            s += (e-media)*(e-media);
+        }
+
+        return(Math.sqrt(s/(nums.length*1.0)));
     }
 
     /**********************

@@ -57,8 +57,9 @@ public class Client {
         /**/
         int x[] = {};
         int n[] = {5,6,12,32,1,6,9,33,2,4,55,6,7,1,2,4,22,4,211,1,67,21,34,23};
-        int m[] = {4,5,3,6,1,2};
-        int mi[] = {5,4,3,1,2};
+        int m[] = {4,5,3,6,1,2,1};
+        int t[] = {4,5,3,6,1,2,6};
+        int mi[] = {5,5,4,3,1,1,2};
         try {
             System.out.println("\nMaximo Lista: " + client.max(n));
             System.out.println("Minimo Lista: " + client.min(n));
@@ -69,8 +70,26 @@ public class Client {
         }
         /**/
         try{
-            System.out.println("Mediana(3.5) "+client.mediana(m));
+            System.out.println("\nMediana(3.5) "+client.mediana(m));
             System.out.println("Mediana(3) "+client.mediana(mi));
+        }catch(Calculator.ListaVaciaEception e){
+            System.out.println(e.getMessage());
+        }
+
+        /*moda, moda moda*/
+        try{
+            System.out.println("\nModa(1) "+client.moda(m));
+            System.out.println("Moda(6) "+client.moda(t));
+            System.out.println("Moda(1-5) "+client.moda(mi));
+        }catch(Calculator.ListaVaciaEception e){
+            System.out.println(e.getMessage());
+        }
+
+        /*desviacion desviacion desviacion*/
+        try{
+            System.out.println("\nDesviacion(1) "+client.desviacionTipica(m));
+            System.out.println("Desviacion(6) "+client.desviacionTipica(t));
+            System.out.println("Desviacion(1-5) "+client.desviacionTipica(mi));
         }catch(Calculator.ListaVaciaEception e){
             System.out.println(e.getMessage());
         }
