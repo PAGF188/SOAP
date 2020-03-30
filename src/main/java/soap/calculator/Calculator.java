@@ -88,7 +88,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "maximo")
     @WebResult(name = "maximo")
-    int max(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
+    int max(@WebParam(name = "lista") int [] nums) throws Exception;
 
     /**
      * Operación 9: Mínimo de una lista de números enteros
@@ -97,7 +97,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "minimo")
     @WebResult(name = "minimo")
-    int min(@WebParam(name = "lista") int [] nums)throws ListaVaciaEception;
+    int min(@WebParam(name = "lista") int [] nums)throws Exception;
 
     /**
      * Operación 10: Media de una lista de numeros enteros
@@ -106,7 +106,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "media")
     @WebResult(name = "media")
-    double media(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
+    double media(@WebParam(name = "lista") int [] nums) throws Exception;
 
     /**
      * Operación 11: Mediana de una lista de numeros enteros
@@ -115,7 +115,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "mediana")
     @WebResult(name = "mediana")
-    double mediana(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
+    double mediana(@WebParam(name = "lista") int [] nums) throws Exception;
 
     /**
      * Operación 12: Moda de una lista de numeros enteros
@@ -124,7 +124,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "moda")
     @WebResult(name = "moda")
-    int moda(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
+    int moda(@WebParam(name = "lista") int [] nums) throws Exception;
 
     /**
      * Operación 13: Desviación típica de una lista de numeros enteros
@@ -133,12 +133,7 @@ public interface Calculator {
      */
     @WebMethod(operationName = "desviacionTipica")
     @WebResult(name = "desviacionTipica")
-    double desviacionTipica(@WebParam(name = "lista") int [] nums) throws ListaVaciaEception;
+    double desviacionTipica(@WebParam(name = "lista") int [] nums) throws Exception;
 
-    public class ListaVaciaEception extends Exception{
-        public ListaVaciaEception(String m){
-            super(m);
-        }
-    }
 
 }

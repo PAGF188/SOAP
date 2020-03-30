@@ -117,9 +117,9 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public int max(int[] nums) throws ListaVaciaEception{
+    public int max(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
         int max_ = nums[0];
         for(int i=1; i<nums.length;i++){
@@ -130,9 +130,9 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public int min(int[] nums) throws ListaVaciaEception{
+    public int min(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
         int min_ = nums[0];
         for(int i=1; i<nums.length;i++){
@@ -143,9 +143,9 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public double media(int[] nums) throws ListaVaciaEception{
+    public double media(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
         double suma = 0.0;
         for(int i=0;i<nums.length;i++){
@@ -156,9 +156,9 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     /*si son impares, coger el del medio, si son pares la medio de los del medio*/
-    public double mediana(int[] nums) throws ListaVaciaEception{
+    public double mediana(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
         nums=this.ordena(nums);
         if(nums.length%2==1){
@@ -170,9 +170,9 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public int moda(int[] nums) throws ListaVaciaEception{
+    public int moda(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
 
         int moda=-1;
@@ -198,9 +198,9 @@ public class CalculatorImpl implements Calculator {
      * s=raiz((1/n)*sumatorio del cuadrado de las desviaciones respecto a la media)
      * Asumimos problacion completa -> el estadístico es n (no n-1)
      */
-    public double desviacionTipica(int[] nums) throws ListaVaciaEception{
+    public double desviacionTipica(int[] nums) throws Exception{
         if(nums==null || nums.length==0){
-            throw new ListaVaciaEception("La lista no contiene ningún elemento");
+            throw new Exception("La lista no contiene ningún elemento");
         }
 
         double media = this.media(nums);

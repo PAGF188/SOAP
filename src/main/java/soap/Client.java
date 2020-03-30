@@ -66,14 +66,14 @@ public class Client {
             System.out.println("Minimo Lista: " + client.min(n));
             System.out.println("Media Lista: " + client.media(n));
             System.out.println("Máximo con lista vacía: " + client.max(x));
-        }catch (Calculator.ListaVaciaEception e){
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
         /**/
         try{
             System.out.println("\nMediana(3.5) "+client.mediana(m));
             System.out.println("Mediana(3) "+client.mediana(mi));
-        }catch(Calculator.ListaVaciaEception e){
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
 
@@ -82,7 +82,7 @@ public class Client {
             System.out.println("\nModa(1) "+client.moda(m));
             System.out.println("Moda(6) "+client.moda(t));
             System.out.println("Moda(1-5) "+client.moda(mi));
-        }catch(Calculator.ListaVaciaEception e){
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
 
@@ -91,7 +91,7 @@ public class Client {
             System.out.println("\nDesviacion(1) "+client.desviacionTipica(m));
             System.out.println("Desviacion(6) "+client.desviacionTipica(t));
             System.out.println("Desviacion(1-5) "+client.desviacionTipica(mi));
-        }catch(Calculator.ListaVaciaEception e){
+        }catch(Exception e){
             System.out.println(e.getMessage());
         }
 
