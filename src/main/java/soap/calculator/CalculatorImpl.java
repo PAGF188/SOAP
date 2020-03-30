@@ -1,8 +1,6 @@
 package soap.calculator;
 
 import javax.jws.WebService;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Implementación de la interfaz Calculator
@@ -164,7 +162,6 @@ public class CalculatorImpl implements Calculator {
         }
         nums=this.ordena(nums);
         if(nums.length%2==1){
-            System.out.println(nums.length/2);
             return(nums[nums.length/2]);
         }
         else{
@@ -228,9 +225,6 @@ public class CalculatorImpl implements Calculator {
                     nums[j+1] = temp;
                 }
             }
-        }
-        for(int i=0;i<nums.length;i++){
-            System.out.println(nums[i] + " ");
         }
         return(nums);
     }

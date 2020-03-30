@@ -1,6 +1,7 @@
 package soap;
 
 import soap.calculator.Calculator;
+import soap.analizador.Analizador;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
@@ -94,5 +95,17 @@ public class Client {
             System.out.println(e.getMessage());
         }
 
+
+        /*PRUEBA ANALIZADOR*/
+        /*PRUEBA ANALIZADOR*/
+        /*PRUEBA ANALIZADOR*/
+        /*PRUEBA ANALIZADOR*/
+        /*PRUEBA ANALIZADOR*/
+        URL wsdlURL2 = new URL("http://localhost:8080/analizador?wsdl");
+        QName SERVICE_NAME2 = new QName("http://analizador.soap/", "Analizador");
+        Service service2 = Service.create(wsdlURL2, SERVICE_NAME2);
+        Analizador analizador = service2.getPort(Analizador.class);
+
+        System.out.println("\n" + analizador.sum(2,3));
     }
 }
