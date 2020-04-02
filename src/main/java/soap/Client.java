@@ -14,6 +14,14 @@ public class Client {
         QName SERVICE_NAME = new QName("http://calculator.soap/", "Calculator");
         Service service = Service.create(wsdlURL, SERVICE_NAME);
         Calculator client = service.getPort(Calculator.class);
+
+        URL wsdlURL2 = new URL("http://localhost:8080/analizador?wsdl");
+        QName SERVICE_NAME2 = new QName("http://analizador.soap/", "Analizador");
+        Service service2 = Service.create(wsdlURL2, SERVICE_NAME2);
+        Analizador analizador = service2.getPort(Analizador.class);
+
+
+
         System.out.println("Suma: " + client.sum(5,10));
         System.out.println("Resta" + client.resta(5,10));
         System.out.println("Multi: " + client.mult(5,10));
@@ -101,11 +109,10 @@ public class Client {
         /*PRUEBA ANALIZADOR*/
         /*PRUEBA ANALIZADOR*/
         /*PRUEBA ANALIZADOR*/
-        URL wsdlURL2 = new URL("http://localhost:8080/analizador?wsdl");
-        QName SERVICE_NAME2 = new QName("http://analizador.soap/", "Analizador");
-        Service service2 = Service.create(wsdlURL2, SERVICE_NAME2);
-        Analizador analizador = service2.getPort(Analizador.class);
 
-        System.out.println("\n" + analizador.sum(2,3));
+
+        System.out.println("\nNumero de palabras: " + analizador.palabras("  Hola   yo me llamo . Pablo y  ; tu  ?   "));
+        System.out.println("Caracteres: " + analizador.caracteres("Hola asd alsd .a,as.dk ñlasdpàiosdad_"));
+        System.out.println("Frases: " + analizador.frases("ajkskdlkasdasd....."));
     }
 }
