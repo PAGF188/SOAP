@@ -64,7 +64,7 @@ public class AnalizadorImpl implements Analizador{
 
     private boolean validar(String x){
         if(x.equals("!") | x.equals("?") | x.equals(".") | x.equals("¿") | x.equals("¡")
-        | x.equals(",") | x.equals(";") | x.equals("-")){
+        | x.equals(",") | x.equals(";") | x.equals("-") | x.equals(":") | x.equals("%")){
             return(false);
         }
         else{
