@@ -25,7 +25,6 @@ public class Client {
         int opcion=-1;
 
         while(opcion!=0) {
-            sc.reset();
             System.out.println("------------ CLIENTE ------------");
             System.out.println("->0:salir");
             System.out.println("->1:sumar");
@@ -54,6 +53,8 @@ public class Client {
             opcion=sc.nextInt();
             int a,b;
             String linea;
+            String palabra;
+            String palabra2;
             int lista[];
 
             switch (opcion){
@@ -174,8 +175,39 @@ public class Client {
                     System.out.println("Inserta texto:");
                     linea=sc.nextLine();
                     System.out.println("Nº frases: " + analizador.frases(linea));
-
+                    break;
+                case 17:
+                    sc.nextLine();
+                    System.out.println("Inserta texto:");
+                    linea=sc.nextLine();
+                    System.out.println("Inserta palabra a buscar:");
+                    palabra=sc.next();
+                    System.out.println("Veces que aparece " + palabra + " : " + analizador.vecesPalabra(linea,palabra));
+                    break;
+                case 18:
+                    sc.nextLine();
+                    System.out.println("Inserta texto:");
+                    linea=sc.nextLine();
+                    System.out.println("Palabra más usada: " + analizador.palabraMasUsada(linea));
+                    break;
+                case 19:
+                    sc.nextLine();
+                    System.out.println("Inserta texto:");
+                    linea=sc.nextLine();
+                    System.out.println("Palabra menos usada: " + analizador.palabraMenosUsada(linea));
+                    break;
+                case 20:
+                    sc.nextLine();
+                    System.out.println("Inserta texto:");
+                    linea=sc.nextLine();
+                    System.out.println("Palabra a reemplazar:");
+                    palabra=sc.nextLine();
+                    System.out.println("Palabra reemplazadora:");
+                    palabra2=sc.nextLine();
+                    System.out.println(analizador.reemplazarPalabra(linea,palabra,palabra2));
+                    break;
             }
+            //sc.nextLine();
         }
 
         System.out.println("Suma: " + client.sum(5,10));

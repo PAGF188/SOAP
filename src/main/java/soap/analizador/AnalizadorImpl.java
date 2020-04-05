@@ -13,10 +13,14 @@ public class AnalizadorImpl implements Analizador{
     @Override
     public int palabras(String a) {
         int palabras=0;
+        /*eliminamos aquello que no sea una letra o punto, por espacio*/
+        a=a.replaceAll("[^A-Za-z]", " ");
+        System.out.println(a);
+
         Scanner s = new Scanner(a);
         while(s.hasNext()){
-            if(this.validar(s.next()))
-                palabras++;
+            s.next();
+            palabras++;
         }
         return(palabras);
     }
@@ -29,8 +33,11 @@ public class AnalizadorImpl implements Analizador{
     @Override
     public int frases(String a) {
         int frases=0;
-        for(int i=0;i<a.length();i++){
-            if(a.charAt(i)=='.')
+        /*eliminamos aquello que no sea una letra o punto, por espacio*/
+        a=a.replaceAll("[^A-Za-z.]", " ");
+        System.out.println(a);
+        for(int i=1;i<a.length();i++){
+            if(a.charAt(i)=='.' && a.charAt(i-1)!='.')
                 frases++;
         }
 
@@ -44,33 +51,64 @@ public class AnalizadorImpl implements Analizador{
 
     @Override
     public int vecesPalabra(String a, String palabra) {
-        return 0;
+        int veces=0;
+        /*eliminamos aquello que no sea una letra, por espacio*/
+        a=a.replaceAll("[^A-Za-z]", " ");
+        System.out.println(a);
+        Scanner s = new Scanner(a);
+        while(s.hasNext()){
+            if(s.next().equals(palabra))
+                veces++;
+        }
+        return veces;
     }
 
     @Override
     public String palabraMasUsada(String a) {
-        return null;
+        int veces=0;
+        String palabra="";
+        String aux;
+        int aux2;
+
+        a=a.replaceAll("[^A-Za-z]", " ");
+        Scanner s = new Scanner(a);
+        while(s.hasNext()){
+            aux=s.next();
+            aux2=this.vecesPalabra(a,aux);
+            if(veces<aux2){
+                veces=aux2;
+                palabra=aux;
+            }
+        }
+        return palabra;
     }
 
     @Override
     public String palabraMenosUsada(String a) {
-        return null;
+        int veces=10000000;
+        String palabra="";
+        String aux;
+        int aux2;
+
+        a=a.replaceAll("[^A-Za-z]", " ");
+        Scanner s = new Scanner(a);
+        while(s.hasNext()){
+            aux=s.next();
+            aux2=this.vecesPalabra(a,aux);
+            System.out.println(aux2);
+            if(veces>aux2){
+                veces=aux2;
+                palabra=aux;
+            }
+        }
+        return palabra;
     }
 
     @Override
-    public String reemplazarPalabra(String a, String palabra) {
-        return null;
+    public String reemplazarPalabra(String a, String palabra1, String palabra2) {
+        /*eliminamos aquello que no sea una letra, por espacio*/
+        a=a.replaceAll(palabra1,palabra2);
+        return a;
     }
-
-    private boolean validar(String x){
-        if(x.equals("!") | x.equals("?") | x.equals(".") | x.equals("¿") | x.equals("¡")
-        | x.equals(",") | x.equals(";") | x.equals("-") | x.equals(":") | x.equals("%")){
-            return(false);
-        }
-        else{
-            return(true);
-        }
-    }
-
 
 }

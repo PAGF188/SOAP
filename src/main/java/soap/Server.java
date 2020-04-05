@@ -16,6 +16,5 @@ public class Server {
         String address2 = "http://localhost:8080/analizador";
         Endpoint.publish(address2, a);
 
-
     }
 }

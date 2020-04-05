@@ -66,12 +66,13 @@ public interface Analizador {
     /**
      * Operación7: Reemplazar palabra.
      * @param a, texto insertado por el usuario
-     * @param palabra, palabra a reemplazar
+     * @param palabra1, palabra a reemplazar
+     * @param palabra2, palabra remplazadora
      * @return, texto con la palabra reemplazada
      */
     @WebMethod(operationName = "reemplazarPalabra")
     @WebResult(name = "textoVuelta")
-    String reemplazarPalabra(@WebParam(name = "text") String a, @WebParam(name = "palabra") String palabra);
+    String reemplazarPalabra(@WebParam(name = "text") String a, @WebParam(name = "palabra1") String palabra1, @WebParam(name = "palabra2") String palabra2);
 
 
 
