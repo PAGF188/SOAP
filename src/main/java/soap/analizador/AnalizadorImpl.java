@@ -37,7 +37,7 @@ public class AnalizadorImpl implements Analizador{
         a=a.replaceAll("[^A-Za-z.]", " ");
         System.out.println(a);
         for(int i=1;i<a.length();i++){
-            if(a.charAt(i)=='.' && a.charAt(i-1)!='.')
+            if(a.charAt(i)=='.' && a.charAt(i-1)!='.' && a.charAt(i-1)!=' ')
                 frases++;
         }
 
@@ -95,7 +95,6 @@ public class AnalizadorImpl implements Analizador{
         while(s.hasNext()){
             aux=s.next();
             aux2=this.vecesPalabra(a,aux);
-            System.out.println(aux2);
             if(veces>aux2){
                 veces=aux2;
                 palabra=aux;
@@ -110,5 +109,4 @@ public class AnalizadorImpl implements Analizador{
         a=a.replaceAll(palabra1,palabra2);
         return a;
     }
-
 }
